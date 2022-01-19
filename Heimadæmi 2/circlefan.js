@@ -1,14 +1,14 @@
 /////////////////////////////////////////////////////////////////
-//    Sýnidæmi í Tölvugrafík
-//     Teikna nálgun á hring sem TRIANGLE_FAN
+//    SÃ½nidÃ¦mi Ã­ TÃ¶lvugrafÃ­k
+//     Teikna nÃ¡lgun Ã¡ hring sem TRIANGLE_FAN
 //
-//    Hjálmtýr Hafsteinsson, janúar 2022
+//    HjÃ¡lmtÃ½r Hafsteinsson, janÃºar 2022
 /////////////////////////////////////////////////////////////////
 var canvas;
 var gl;
 
-// numCirclePoints er fjöldi punkta á hringnum
-// Heildarfjöldi punkta er tveimur meiri (miðpunktur + fyrsti punktur kemur tvisvar)
+// numCirclePoints er fjÃ¶ldi punkta Ã¡ hringnum
+// HeildarfjÃ¶ldi punkta er tveimur meiri (miÃ°punktur + fyrsti punktur kemur tvisvar)
 var numCirclePoints = 20;       
 
 var radius = 0.4;
@@ -54,8 +54,8 @@ function createCirclePoints( cent, rad, k )
     var dAngle = 2*Math.PI/k;
     for( i=k; i>=0; i-- ) {
     	a = i*dAngle;
-    	// var p = vec2( rad*Math.sin(a) + cent[0], rad*Math.cos(a) + cent[1] );
-    	  var p = vec3(0, rad*Math.sin(a) + cent[0], rad*Math.cos(a) + cent[1] );
+    	var p = vec2( rad*Math.sin(a) + cent[0], rad*Math.cos(a) + cent[1] );
+    	  // var p = vec3(0, rad*Math.sin(a) + cent[0], rad*Math.cos(a) + cent[1] );
     	points.push(p);
     }
 }
