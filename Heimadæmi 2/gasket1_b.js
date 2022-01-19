@@ -40,20 +40,24 @@ window.onload = function init()
 
     for ( var i = 0; points.length < NumPoints; ++i ) {
         var r = Math.floor(Math.random() * 21);
-        var j;
-        if(r == 19) {
-            j = 1;
-        }else if(r == 20){
-            j = 2;
-        }else{
-            j = 0;
-        }
-
+        // var j;
+        // if(r == 19) {
+        //     j = 1;
+        // }else if(r == 20){
+        //     j = 2;
+        // }else{
+        //     j = 0;
+        // }
+        const j = prob(r);
         p = add( points[i], vertices[j] );
         p = scale( 0.5, p );
         points.push( p );
     }
-
+    let prob = (value) => {
+        if (value < 19) return 0;
+        if (value == 19) return 1;
+        if (value == 20) return 2;
+    }
     //
     //  Configure WebGL
     //
