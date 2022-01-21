@@ -1,14 +1,14 @@
 /////////////////////////////////////////////////////////////////
-//    Sýnidæmi í Tölvugrafík
-//     Teikna nálgun á hring sem TRIANGLE_FAN
+//    SÃ½nidÃ¦mi Ã­ TÃ¶lvugrafÃ­k
+//     Teikna nÃ¡lgun Ã¡ hring sem TRIANGLE_FAN
 //
-//    Hjálmtýr Hafsteinsson, janúar 2022
+//    HjÃ¡lmtÃ½r Hafsteinsson, janÃºar 2022
 /////////////////////////////////////////////////////////////////
 var canvas;
 var gl;
 
-// numCirclePoints er fjöldi punkta á hringnum
-// Heildarfjöldi punkta er tveimur meiri (miðpunktur + fyrsti punktur kemur tvisvar)
+// numCirclePoints er fjÃ¶ldi punkta Ã¡ hringnum
+// HeildarfjÃ¶ldi punkta er tveimur meiri (miÃ°punktur + fyrsti punktur kemur tvisvar)
 var numCirclePoints = 20;       
 
 var radius = 0.4;
@@ -16,7 +16,7 @@ var center = vec2(0, 0);
 
 var points = [];
 
-window.onload = function init() {
+function init() {
 
     canvas = document.getElementById( "gl-canvas" );
     
@@ -33,8 +33,8 @@ window.onload = function init() {
     gl.useProgram( program );
     
 	// Create the circle
-    points.push( center );
-    createCirclePoints( center, radius, numCirclePoints );
+    // points.push( center );
+    // createCirclePoints( center, radius, numCirclePoints );
 
     var vBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, vBuffer);
@@ -43,6 +43,11 @@ window.onload = function init() {
     var vPosition = gl.getAttribLocation(program, "vPosition");
     gl.vertexAttribPointer(vPosition, 2, gl.FLOAT, false, 0, 0);
     gl.enableVertexAttribArray(vPosition);
+    document.getElementById("slider").onchange = function(event) {
+        numCirclePoints = event.target.value;
+        render();
+    };
+
     
     render();
 }
@@ -59,10 +64,19 @@ function createCirclePoints( cent, rad, k )
     }
 }
 
+window.onload = init;
+
 function render() {
-    
+
+    points = [];
+    points.push( center );
+    createCirclePoints( center, radius, numCirclePoints );
+
     gl.clear( gl.COLOR_BUFFER_BIT );
-    
+    // var vBuffer = gl.createBuffer();
+    // gl.bindBuffer(gl.ARRAY_BUFFER, vBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, flatten(points), gl.STATIC_DRAW);
+
     // Draw circle using Triangle Fan
     gl.drawArrays( gl.TRIANGLE_FAN, 0, numCirclePoints+2 );
 

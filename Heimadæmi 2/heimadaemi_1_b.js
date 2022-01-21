@@ -39,25 +39,18 @@ window.onload = function init()
     // last point and a randomly chosen vertex
 
     for ( var i = 0; points.length < NumPoints; ++i ) {
-        var r = Math.floor(Math.random() * 21);
-        // var j;
-        // if(r == 19) {
-        //     j = 1;
-        // }else if(r == 20){
-        //     j = 2;
-        // }else{
-        //     j = 0;
-        // }
-        const j = prob(r);
+        var j = weightedProbability(Math.floor(Math.random() * 21));
         p = add( points[i], vertices[j] );
         p = scale( 0.5, p );
         points.push( p );
     }
-    let prob = (value) => {
-        if (value < 19) return 0;
-        if (value == 19) return 1;
-        if (value == 20) return 2;
+
+    function weightedProbability(value) {
+        if (value < 19) return 0; //18x more probable -> 90%
+        if (value == 19) return 1; // 5%
+        if (value == 20) return 2; // 5%
     }
+
     //
     //  Configure WebGL
     //

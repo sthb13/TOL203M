@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
-<title>2D Sierpinski Gasket</title>
+<title>Heimadaemi 3</title>
+
 
 <script id="vertex-shader" type="x-shader/x-vertex">
 attribute vec4 vPosition;
@@ -10,7 +11,6 @@ attribute vec4 vPosition;
 void
 main()
 {
-	  gl_PointSize = 1.0;
     gl_Position = vPosition;
 }
 </script>
@@ -28,10 +28,14 @@ main()
 <script type="text/javascript" src="../Common/webgl-utils.js"></script>
 <script type="text/javascript" src="../Common/initShaders.js"></script>
 <script type="text/javascript" src="../Common/MV.js"></script>
-<script type="text/javascript" src="gasket1.js"></script>
-</head>
+<script type="text/javascript" src="heimadaemi_3.js"></script>
+</head>   
 
 <body>
+<div>
+Number of points: 4 <input id="slider" type="range"
+ min="4" max="100" step="1" value="20" />100
+</div>
 <canvas id="gl-canvas" width="512" height="512">
 Oops ... your browser doesn't support the HTML5 canvas element
 </canvas>
