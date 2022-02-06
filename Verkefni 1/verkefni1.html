@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+
+     uniform vec2 p;
+     attribute vec4 vPosition;
+
+     void main()
+     {
+         vec4 t = vPosition;
+         t.xy = t.xy + p;
+         gl_Position = t;
+     }
+
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+
+     precision mediump float;
+     uniform vec4 vColor;
+
+     void
+     main()
+     {
+         gl_FragColor = vColor;
+     }
+
+    </script>
+
+    <script type="text/javascript" src="../Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../Common/initShaders.js"></script>
+    <script type="text/javascript" src="../Common/MV.js"></script>
+    <script type="text/javascript" src="gameManager.js"></script>
+    <script type="text/javascript" src="monster.js"></script>
+    <script type="text/javascript" src="gold.js"></script>
+    <script type="text/javascript" src="level.js"></script>
+    <script type="text/javascript" src="mario.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+    <body>
+        <div>
+            <canvas id="gl-canvas" width="800" height="600" >
+        </div>
+        <div>
+            <p><span id="score">Stig: 0</span></p>
+        </div>
+    </body>
+</html>
