@@ -8,8 +8,7 @@ class Mario {
       this.direction = DIRECTION.RIGHT;
 
       this.pos = {x: x, y: y};
-      this.velX = VELX;
-      this.velY = VELY;
+      this.vel = {x:VELX, y:VELY};
       this.vertices = new Float32Array(MARIO.RIGHT);
       this.color = vec4(0.1, 0.1, 0.9, 1.0);
 
@@ -23,13 +22,13 @@ class Mario {
             this.vertices = MARIO.RIGHT;
             this.direction = DIRECTION.RIGHT;
             if(this.pos.x > 1) return;
-            this.pos.x += this.velX;
+            this.pos.x += this.vel.x;
             break;
         case DIRECTION.LEFT:
             this.vertices = MARIO.LEFT;
             this.direction = DIRECTION.LEFT;
             if(this.pos.x < -1) return;
-            this.pos.x -= this.velX;
+            this.pos.x -= this.vel.x;
             break;
         }
     }
@@ -38,12 +37,12 @@ class Mario {
         if(this.pos.y < GROUNDPOS){
             this.pos.y = GROUNDPOS;
             this.state = STATE.RUNNING;
-            this.velY = VELY;
+            this.vel.y = VELY;
             return;
         }
         this.state = STATE.JUMPING;
-        this.velY -= GRAVITY;
-        this.pos.y += this.velY;
+        this.vel.y -= GRAVITY;
+        this.pos.y += this.vel.y;
         this.move(dir);
     }
 
