@@ -54,10 +54,10 @@ window.onload = function init() {
     cLocation = gl.getUniformLocation(program, "vColor");
     pLocation = gl.getAttribLocation(program, "vPosition");
 
-    marioBuffer = gl.createBuffer();
     levelBuffer = gl.createBuffer();
-    goldBuffer = gl.createBuffer();
     monsterBuffer = gl.createBuffer();
+    goldBuffer = gl.createBuffer();
+    marioBuffer = gl.createBuffer();
 
     gl.enableVertexAttribArray(pLocation);
     gl.vertexAttribPointer(pLocation, 2, gl.FLOAT, false, 0, 0);
