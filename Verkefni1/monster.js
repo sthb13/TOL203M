@@ -9,7 +9,7 @@ class Monster {
         this.color = vec4(0.9, 0.1, 0.1, 1.0);
 
         gl.bindBuffer(gl.ARRAY_BUFFER, monsterBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, flatten(this.vertices), gl.DYNAMIC_DRAW);
+        gl.bufferData(gl.ARRAY_BUFFER, flatten(this.vertices), gl.STATIC_DRAW);
     }
 
     update() {

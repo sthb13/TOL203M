@@ -8,7 +8,7 @@ class Gold {
         this.color = vec4(1.0, 1.0, 0.0, 1.0);
 
         gl.bindBuffer(gl.ARRAY_BUFFER, goldBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, flatten(this.vertices), gl.DYNAMIC_DRAW);
+        gl.bufferData(gl.ARRAY_BUFFER, flatten(this.vertices), gl.STATIC_DRAW);
     }
 
     update() {

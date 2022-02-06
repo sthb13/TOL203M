@@ -18,7 +18,6 @@ class GameManager {
         this.monsters.push(m);
     }
 
-
     // make new gold
     spawnGold(){
         if(this.goldTimer < 0){

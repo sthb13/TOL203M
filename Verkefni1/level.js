@@ -5,7 +5,7 @@ class Level {
                                           1.0, 0.05, 1.0, -0.10]);
         this.color = vec4(1.0, 0.8, 0.7, 1.0);
         gl.bindBuffer(gl.ARRAY_BUFFER, levelBuffer);
-        gl.bufferData(gl.ARRAY_BUFFER, flatten(this.vertices), gl.DYNAMIC_DRAW);
+        gl.bufferData(gl.ARRAY_BUFFER, flatten(this.vertices), gl.STATIC_DRAW);
     }
 
     update(){

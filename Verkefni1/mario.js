@@ -13,7 +13,7 @@ class Mario {
       this.color = vec4(0.1, 0.1, 0.9, 1.0);
 
       gl.bindBuffer(gl.ARRAY_BUFFER, marioBuffer);
-      gl.bufferData(gl.ARRAY_BUFFER, flatten(this.vertices), gl.DYNAMIC_DRAW);
+        gl.bufferData(gl.ARRAY_BUFFER, flatten(this.vertices), gl.STATIC_DRAW);
   }
 
     move(dir){
@@ -59,7 +59,7 @@ class Mario {
 
   render(){
       gl.bindBuffer(gl.ARRAY_BUFFER, marioBuffer);
-      gl.bufferData(gl.ARRAY_BUFFER, flatten(this.vertices), gl.DYNAMIC_DRAW);
+      gl.bufferData(gl.ARRAY_BUFFER, flatten(this.vertices), gl.STATIC_DRAW);
       gl.uniform2fv(position, flatten([this.pos.x,this.pos.y]));
       gl.vertexAttribPointer(pLocation, 2, gl.FLOAT, false, 0, 0);
       gl.uniform4fv(cLocation, flatten(this.color));
