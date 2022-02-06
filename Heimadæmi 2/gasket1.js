@@ -32,9 +32,10 @@ window.onload = function init()
     var p = scale( 0.25, add( u, v ) );
 
     // And, add our initial point into our array of points
-
+    let a = vec4(1.0,2.0,3.0,4.0);
+    a.wzyx = a.xxyz;
     points = [ p ];
-    console.log(points);
+    console.log(a);
     // Compute new points
     // Each new point is located midway between
     // last point and a randomly chosen vertex
